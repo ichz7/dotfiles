@@ -1,0 +1,103 @@
+{
+  // Waybar at top layer
+  "layer": "top",
+  "reload_on_style_change": true,
+
+  // Waybar position
+  "position": "top",
+
+  // Bar behavior
+  "passthrough": false,
+  "reload_style_on_change": true,
+
+  // Gaps
+  "spacing": 10,
+
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "margin-bottom": 1,
+
+  // MODULES ORDER
+  "modules-left": [
+    "custom/icon",
+    "custom/media",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "tray",
+    "clock"
+  ],
+
+  // ICON
+  "custom/icon": {
+    "format": ""
+  },
+
+  // MEDIA PLAYER
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/mediaplayer.py",
+    "return-type": "json",
+    "interval": 1,
+    "tooltip": false
+  },
+
+  // WINDOW TITLE
+  "hyprland/window": {
+    "separate-outputs": true,
+    "format": "{class}",
+    "rewrite": {
+      "": "chz",
+      "kitty": "kitty",
+      "vesktop": "Discord",
+      "zen": "Browser"
+    }
+  },
+
+  // WORKSPACES
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "i",
+      "2": "ii",
+      "3": "iii",
+      "4": "iv",
+      "5": "v",
+      "6": "i",
+      "7": "ii",
+      "8": "iii",
+      "9": "iv",
+      "10": "v"
+    }
+  },
+
+  // TRAY
+  "tray": {
+    "icon-size": 16,
+    "spacing": 5,
+    "show-passive-items": true
+  },
+
+  // CLOCK
+  "clock": {
+    "format": "<span></span>  {:%H:%M}",
+    "interval": 1,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#8b5cf6'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "shift_down",
+      "on-click": "shift_up"
+    }
+  }
+}
