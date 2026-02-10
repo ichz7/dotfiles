@@ -44,7 +44,7 @@ tooltip {
 }
 
 #workspaces button.active {
-    color: @bar-bg;
+    color: @pill-bg;
     background-color: @primary;
     border-radius: 10px;
 }
