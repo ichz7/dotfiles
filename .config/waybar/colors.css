@@ -1,0 +1,9 @@
+/* Paleta Waybar - Black & White Edition */
+@define-color background rgba(15, 15, 15, 0); /* Preto profundo com transparência suave */
+@define-color foreground #ffffff;                /* Branco puro para os ícones e textos principais */
+@define-color primary #ffffff;                   /* Cor de destaque (Branco puro) */
+@define-color secondary #d1d1d1;                 /* Branco fosco (Cinza claro) para itens secundários */
+@define-color tertiary #9e9e9e;                  /* Cinza médio para detalhes menores */
+@define-color error #ff5555;                     /* Vermelho vibrante (apenas para erros/bateria crítica) */
+@define-color surface #181818;                   /* Preto sólido para fundos de módulos individuais */
+@define-color surface-bright #333333;            /* Cinza escuro para quando passar o mouse (Hover) */

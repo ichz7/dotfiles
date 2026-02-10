@@ -1,0 +1,16 @@
+.config/Code/
+.config/Thunar/
+.config/autostart/
+.config/dconf/
+.config/gh/
+.config/go/
+.config/gtk-3.0/
+.config/gtk-4.0/
+.config/mimeapps.list
+.config/nwg-look/
+.config/pavucontrol.ini
+.config/simple-update-notifier/
+.config/spotify/
+.config/vesktop/
+.config/xfce4/
+.config/xsettingsd/

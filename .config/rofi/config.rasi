@@ -1,0 +1,119 @@
+/*-----Configuration-----*/
+
+configuration {
+    modes: "drun";
+    font: "Monaspace Neon Frozen 12";
+    drun-display-format: "{name}";
+}
+
+/*-----Global Palette (Black & White Edition)-----*/
+
+* {
+    /* Cores principais */
+    bg-main: #0f0f0fef;          /* Fundo preto (com transparência suave) */
+    bg-input: #262626;           /* Fundo do campo de busca (Cinza escuro) */
+    bg-selected: #ffffff;        /* Fundo do item selecionado (Branco puro) */
+    
+    fg-main: #ffffff;            /* Texto branco principal */
+    fg-secondary: #e0e0e0;       /* Texto branco fosco */
+    fg-selected: #000000;        /* Texto preto (para contraste no fundo branco) */
+    
+    border-white: #ffffff;       /* Cor da borda */
+    
+    /* Variáveis do sistema */
+    background-color: transparent;
+    text-color: @fg-main;
+    
+    border-color: @border-white;
+    br: 6px;                     /* Corner radius do tema Orchis */
+
+    spacing: 0;
+}
+
+/*-----Main Window-----*/
+
+window {
+    transparency: "real";
+    background-color: @bg-main;
+    border: 1px;
+    border-color: @border-white;
+    border-radius: @br;
+    width: 20%;
+    padding: 0;
+}
+
+/*-----Main Box-----*/
+
+mainbox {
+    children: [inputbar, listview];
+    orientation: vertical;
+}
+
+/*-----Input Bar (Campo de Busca)-----*/
+
+inputbar {
+    children: [entry];
+    background-color: transparent;
+}
+
+entry {
+    color: @fg-main;
+    placeholder-color: #ffffff50;
+    background-color: @bg-input;
+    placeholder: "Search...";    /* Substituí o texto antigo por um padrão clean */
+    text-transform: bold;
+    border-radius: @br;
+    padding: 12px;
+    margin: 10px;
+    vertical-align: 0.5;
+}
+
+/*-----List View-----*/
+
+listview {
+    scrollbar: false;
+    border: 0;
+    lines: 10;
+    padding: 10px;
+}
+
+/*-----Elements (Itens da Lista)-----*/
+
+element {
+    children: [element-icon, element-text];
+    spacing: 10px;
+    border-radius: @br;
+    padding: 10px;
+}
+
+element-icon {
+    size: 24px;
+    vertical-align: 0.5;
+    margin: 0 0 0 10px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-transform: bold;
+    color: @fg-secondary;
+}
+
+/* Quando selecionado: Inverte as cores (Fundo Branco, Texto Preto) */
+element selected.normal {
+    background-color: @bg-selected;
+    border: 1px;
+    border-color: @bg-selected;
+}
+
+element-text selected {
+    color: @fg-selected;
+}
+
+element-icon selected {
+    /* Alguns ícones podem precisar de ajuste, mas geralmente funcionam bem */
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+}

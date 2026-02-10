@@ -1,0 +1,72 @@
+/* IMPORTANTE: Traz as cores do Matugen */
+@import "/home/chz/.config/wofi/colors.css";
+
+/* RESET GERAL */
+* {
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* A JANELA PRINCIPAL (O Vidro) */
+window {
+    margin: 0px;
+    /* Borda usa a cor de destaque do tema */
+    border: 2px solid @primary; 
+    border-radius: 16px;
+    /* Fundo usa a cor do wallpaper com transparência (0.85) */
+    background-color: rgba(15,28,36,0.5); 
+}
+
+/* A CAIXA DE PESQUISA */
+#input {
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    /* Fundo um pouco mais claro para destacar */
+    background-color: @surface; 
+    color: @primary; 
+    padding: 10px;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+
+/* OS ITENS DA LISTA */
+#entry {
+    margin: 5px 0px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+}
+
+/* ITEM SELECIONADO (O Destaque) */
+#entry:selected {
+    /* Fundo fica da cor principal */
+    background-color: @primary; 
+    /* Texto inverte para ficar legível (preto/escuro) */
+    color: @background; 
+    border-radius: 10px;
+    border: none;
+}
+
+/* ÍCONES */
+#img {
+    margin-right: 10px;
+    background-color: transparent;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: @secondary; /* Texto normal numa cor suave */
+}
+
+/* Garante que o texto selecionado fique legível */
+#text:selected {
+    color: @background;
+}

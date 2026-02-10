@@ -1,114 +1,78 @@
-@define-color rosewater #f4dbd6;
-@define-color flamingo #f0c6c6;
-@define-color pink #f5bde6;
-@define-color mauve #c6a0f6;
-@define-color red #ed8796;
-@define-color maroon #ee99a0;
-@define-color peach #f5a97f;
-@define-color yellow #eed49f;
-@define-color green #a6da95;
-@define-color teal #8bd5ca;
-@define-color sky #91d7e3;
-@define-color sapphire #7dc4e4;
-@define-color blue #8aadf4;
-@define-color lavender #b7bdf8;
-@define-color text #cad3f5;
-@define-color subtext1 #b8c0e0;
-@define-color subtext0 #a5adcb;
-@define-color overlay2 #939ab7;
-@define-color overlay1 #8087a2;
-@define-color overlay0 #6e738d;
-@define-color surface2 #5b6078;
-@define-color surface1 #494d64;
-@define-color surface0 #363a4f;
-@define-color base #24273a;
-@define-color mantle #1e2030;
-@define-color crust #181926;
+@import "colors.css";
+
+/* --- MAPEAMENTO DO MATUGEN --- */
+@define-color bar-bg @background;
+@define-color main-fg @primary;
+@define-color pill-bg @surface;
+@define-color pill-border @secondary;
+@define-color text-color @on_primary;
 
 * {
-  font-family: "JetBrains Mono Nerd", monospace;
-  border: none;
-  min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
 }
 
+/* --- BARRA PRINCIPAL (GLASS) --- */
 window#waybar {
-  /* border: 1px solid alpha(@blue, 0.85); */
-  background-color: alpha(@base, 0.75);
-  /* border-radius: 0 0 0.2rem 0.2rem; */
-  border-radius: 0;
-  color: #ffffff;
-  padding: 2px 12px;
-  /* background-color: transparent; */
-  transition: 0.3s all;
+    /* alpha em 0.5 define 50% de transparência */
+    background-color: alpha(@bar-bg, 0.5);
+    border-bottom: none;
+    color: @text-color;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-  /* border: 2px solid alpha(@blue, 0.85); */
-  /* background-color: alpha(@base, 0.75); */
-  /* border-radius: 8px;
-  padding: 2px 12px; */
-  padding: 0 1rem;
-  color: #ffffff;
-  border: none;
+tooltip {
+    background: @bar-bg;
+    border: 1px solid @primary;
 }
 
-.modules-center {
-  padding: 2px;
-}
-
-#custom-icon {
-  font-size: 15px;
-  padding-right: 5px;
-}
-
-#window {
-  font-weight: bold;
-  color: #ffffff;
-  transition: all 0.3s ease;
-}
-
+/* --- WORKSPACES (Cápsula Esquerda) --- */
 #workspaces {
-  font-weight: bold;
-  font-size: 12px;
-  border: none;
+    background-color: @pill-bg;
+    margin: 6px 10px;
+    padding: 0 10px;
+    border-radius: 15px;
+    border: 1px solid @pill-border;
 }
 
 #workspaces button {
-  color: #ffffff;
-  border-radius: 0;
-  transition: 0.2s ease-out;
-  border-bottom: 1px solid transparent;
-}
-
-#workspaces button:first-child {
-  /* border-bottom-left-radius: 4px; */
-}
-
-#workspaces button:last-child {
-  /* border-bottom-right-radius: 4px; */
-}
-
-#workspaces button.urgent {
-  border-bottom: 1px solid @blue;
+    color: @secondary;
+    padding: 0 6px;
+    background: transparent;
+    margin: 4px 0;
 }
 
 #workspaces button.active {
-  border-bottom: 1px solid @yellow;
-  color: @yellow;
+    color: @bar-bg;
+    background-color: @primary;
+    border-radius: 10px;
 }
 
-#tray {
-  color: #ffffff;
+/* --- MÓDULOS DA DIREITA --- */
+/* Note que incluímos apenas o #tray aqui, o bluetooth branco aparecerá dentro dele */
+#pulseaudio, #battery, #tray, #custom-notification {
+    background-color: @pill-bg;
+    color: @primary;
+    border-radius: 15px;
+    padding: 4px 14px;
+    margin: 6px 4px;
+    border: 1px solid @pill-border;
 }
 
 #clock {
-  color: #ffffff;
-  transition: all 0.3s ease;
-  font-weight: bold;
+    font-family: "Inter Display", "JetBrainsMono Nerd Font";
+    font-weight: 800;
+    font-size: 15px;
+    background-color: @surface;
+    color: @text-color;
+    padding: 4px 20px;
+    border-radius: 15px;
+    margin: 5px 10px;
 }
 
-#clock:hover {
-  color: @yellow;
-}
+#battery.warning { color: @error; }
+#battery.critical { background-color: @error; color: @bar-bg; }
+
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; background-color: @error; }

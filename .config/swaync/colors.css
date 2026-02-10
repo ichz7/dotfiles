@@ -1,0 +1,12 @@
+/* Paleta Black & White - White Accents */
+@define-color background rgba(15, 15, 15, 0.75); /* Preto profundo com transparência */
+
+@define-color text #ffffff;                /* Branco puro para leitura */
+@define-color border #ffffff;              /* Borda branca bem nítida */
+
+@define-color button-bg #262626;           /* Cinza escuro para os botões */
+@define-color button-text #e0e0e0;         /* Branco fosco para o texto do botão */
+
+/* Cores para quando o botão estiver ativo/selecionado */
+@define-color button-bg-checked #ffffff;    /* Fundo branco quando clicado */
+@define-color button-text-checked #000000;  /* Texto preto quando o fundo for branco */

@@ -1,0 +1,169 @@
+@import "colors.css";
+
+/* --- CONFIG GLOBAL --- */
+* {
+    font-family: "JetBrains Mono Nerd Font"; 
+    font-weight: bold;
+}
+
+/* --- BARRA LATERAL (Principal) --- */
+.control-center {
+    background: @background;
+    border-left: 2px solid @border; 
+    border-right: none; border-top: none; border-bottom: none;
+    border-radius: 24px 0 0 24px; 
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+}
+
+/* --- TÍTULO --- */
+.widget-title {
+    color: @text;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.widget-title > button {
+    background: @button-bg;
+    color: @button-text;
+    border: 1px solid @border;
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 6px 15px;
+    text-shadow: none; box-shadow: none;
+}
+
+.widget-title > button:hover {
+    background: shade(@button-bg, 1.2);
+    color: @button-text;
+}
+
+/* --- GRID DE BOTÕES (Wifi, Bluetooth) --- */
+.widget-buttons-grid {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: transparent;
+    border-radius: 12px;
+    margin: 3px;
+    border: none;
+    box-shadow: none;
+    color: @text;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: alpha(@border, 0.3);
+}
+
+/* [CORREÇÃO 1] Botão Ativado: Texto usa cor de contraste */
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: @border;
+    color: @button-text-checked; /* <--- Mudei aqui */
+}
+
+/* --- PLAYER DE MÚSICA --- */
+.widget-mpris {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: @text;
+}
+
+.widget-mpris > box > box {
+    background: transparent !important;
+    border: none;
+}
+
+.widget-mpris-title { font-size: 14px; color: @border; }
+.widget-mpris-subtitle { font-size: 12px; color: alpha(@text, 0.7); }
+
+/* --- SLIDERS (Volume/Brilho) --- */
+.widget-volume, .widget-backlight {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+trough {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    min-height: 6px;
+}
+
+/* [CORREÇÃO 2] Barra cheia usa a cor do tema */
+highlight {
+    background: @border;
+    border-radius: 20px;
+}
+
+/* [CORREÇÃO 2] Bolinha do slider também usa a cor do tema */
+slider {
+    background: @border;
+    border: 2px solid @text; /* Opcional: borda para destacar a bolinha */
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+}
+
+/* --- NOTIFICAÇÕES (Cards) --- */
+.notification-row {
+    outline: none; margin-top: 8px; margin-right: 15px; margin-left: 5px;
+}
+
+.floating-notifications { background: transparent; }
+
+.notification {
+    background: alpha(@background, 0.5);
+    border: 1px solid alpha(@border, 0.7);
+    border-radius: 16px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.notification-content { padding: 10px; }
+.summary { color: @border; font-size: 14px; }
+.time { color: alpha(@text, 0.6); font-size: 11px; margin-right: 5px; }
+.body { color: @text; font-weight: normal; }
+.close-button { background: transparent; color: @text; border: none; box-shadow: none; text-shadow: none; }
+
+/* --- ÍCONE "SEM NOTIFICAÇÕES" --- */
+.notification-list-container > label { color: @text; }
+.widget-dnd > image, .notification-list-container > image { color: @border; }
+
+/* --- BARRA DE ROLAGEM [CORREÇÃO 3] --- */
+scrollbar { background: transparent; }
+
+scrollbar slider {
+    background: alpha(@border, 0.3);
+    border-radius: 50px;
+    min-width: 4px;     /* Mantive fino no estado normal */
+    min-height: 40px;
+    border: none;
+    box-shadow: none;
+}
+
+/* Quando passa o mouse, aumenta só um pouquinho */
+scrollbar slider:hover {
+    background: @border;
+    min-width: 6px;     /* Era 8px, diminuí para 6px para ficar mais elegante */
+}
+
+scrollbar trough { border: none; background: transparent; }
+
+/* FIX FUNDO CINZA */
+listbox { background: transparent; }
+listbox > row { background: transparent !important; border: none !important; box-shadow: none !important; margin: 0px; }
+listbox > row:selected, listbox > row:focus, listbox > row:hover {
+    background: transparent !important; border: none !important; box-shadow: none !important; outline: none !important;
+}
+
+# BRILHO
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-

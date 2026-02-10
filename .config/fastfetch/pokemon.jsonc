@@ -1,0 +1,91 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+"logo": {
+    "source": "~/.config/fastfetch/mimikyu.txt",
+    "type": "auto",
+    "padding": {
+        "top": 1,
+        "left": 2
+    }
+ },
+    "display": {
+        "separator": " ➜ " 
+    },
+    "modules": [
+        "break",
+        {
+            "type": "title",
+            "format": "             \u001b[35m{1}\u001b[0m",
+            "keyWidth": 10
+        },
+        {
+            "type": "custom",
+            "format": " ─────────────────────────── "
+        },
+        {
+            "type": "os",
+            "key":" ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "command",
+            "key": "󰣇 ",
+            "keyColor": "blue",
+            "text": "echo I use Arch btw"
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "magenta"
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "yellow"
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "blue"
+        },
+        /*
+        {
+            "type": "packages",
+            "key": "󰏖 ",
+            "keyColor": "yellow"
+        },
+        */
+        {
+            "type": "memory",
+            "key": "󰍛 ",
+            "keyColor": "magenta",
+            // format: used / total
+            "format": "{1} / {2}"
+        },
+        {
+            "type": "uptime",
+            "key": "󰔛 ",
+            "keyColor": "green"
+        },
+        {
+            "type": "command",
+            "key": "󱦟 ",
+            "keyColor": "magenta",
+            "text": "install_date=$(stat -c %W /); now=$(date +%s); diff=$((now - install_date)); days=$((diff / 86400)); hours=$(( (diff % 86400) / 3600 )); if [ $days -eq 0 ]; then echo \"${hours}h (Newborn)\"; else echo \"${days} days\"; fi"
+        },
+        {
+            "type": "custom",
+            "format": " ─────────────────────────── "
+        },
+        {
+            "type": "custom",
+            "format": "   \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[90m "
+        },
+		"break"
+    ]
+}
